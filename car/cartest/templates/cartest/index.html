@@ -1,0 +1,69 @@
+{% extends "cartest/base.html"%}
+{% load static %}
+
+<title>{% block title %}珠海为民汽车检测有限公司{% endblock %}</title>
+{% block lianjie %}   <!-- 导航栏菜单 --> 
+			<nav>
+				<div class="nav">
+					<div class="wp">
+						<ul>
+							<li ><a href="index.html">检测流程</a></li>
+							<li class = "active">
+								<a href="course-list.html">
+									车辆登记<img class="hot" src="{% static 'images/nav_hot.png' %}">
+								</a>
+							</li>
+							<li >
+								<a href="teachers-list.html">关于我们</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+      <form class="form-signin" method="post">
+	{% csrf_token %}
+		<div class="input-group">
+			<label for="inputEmail" class="sr-only">用户名</label>
+			<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+			<input type="text" id="inputEmail" name = "Username" class="form-control" placeholder="用户名" required autofocus>
+		</div>
+		</br>
+		<div class="input-group">
+        <label for="inputPassword" class="sr-only">手机号码</label>
+		<span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+        <input type="text" id="inputPassword"  name="phone_number" maxlength=11 class="form-control" placeholder="手机号码" required>
+		</div>
+		</br>
+		<div class="input-group">
+		<label for="inputPassword" class="sr-only">车牌号</label>
+		<span class="input-group-addon"><span class="glyphicon glyphicon-star"></span></span>
+        <input type="text"  maxlength=7 id="inputPassword"  name = "car_number" class="form-control" placeholder="车牌号" required>
+		</div>
+		</br>
+		<div class="input-group">
+		<label for="inputPassword" class="sr-only">地址</label>
+		<span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
+        <input type="text" id="inputPassword"  name = "address" class="form-control" placeholder="取车地址" required>
+		</div>
+	
+        <div class="checkbox">
+	
+          <label>
+            <input type="checkbox" value="remember-me"> 还车地址是否一致
+          </label>
+        </div>
+	   <div class="form-group marb8 captcha1 ">
+        				{{ index_form.captcha }}
+				</br>
+					{{index_form.error.captcha}}
+                        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">提交订单</button>
+	{{msg}}
+      </form>
+	</br>
+    </div> <!-- /container -->
+{% endblock%}
