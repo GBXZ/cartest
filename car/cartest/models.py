@@ -16,6 +16,6 @@ class Carinfo(models.Model):
 		verbose_name=u"车辆信息"
 		verbose_name_plural =verbose_name
 		
-	def str(self):
+	def __str__(self):
 		return self.car_number
 # Create your models here.

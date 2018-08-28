@@ -13,8 +13,8 @@ class BaseSetting(object):
 	use_bootswatch=True
 
 class GlobalSettings(object):
-	site_title="汽车检测管理系统"
-	site_footer="汽车检测"
+	site_title="为民汽车检测管理系统"
+	site_footer="为民汽车检测"
 	
 xadmin.site.register(views.CommAdminView,GlobalSettings)
 xadmin.site.register(Carinfo,CarinfoAdmin)

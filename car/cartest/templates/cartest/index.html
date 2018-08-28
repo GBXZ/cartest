@@ -56,14 +56,28 @@
             <input type="checkbox" value="remember-me"> 还车地址是否一致
           </label>
         </div>
+	<!--
+	<div class="field">
+          <div class="ui left img input">
+              <button  id='js-captcha-refresh'  class='ui icon button ' >ss<i class="refresh icon green"></i></button>
+              <img src="{{ image_url}}" alt="captcha" class="captcha">
+              <input autocomplete="off" id="id_captcha_1" name="captcha_1" type="text" placeholder="输入验证码">
+              <input id="id_reg_captcha_0" name="captcha_0" type="hidden" value="{{ hashkey }}">
+         </div>
+       </div>
+	-->
+	<!--
 	   <div class="form-group marb8 captcha1 ">
         				{{ index_form.captcha }}
 				</br>
 					{{index_form.error.captcha}}
+				<button class='js-captcha-refresh'>刷新验证码</button>
                         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">提交订单</button>
+    	-->
+	 <button class="btn btn-lg btn-primary btn-block" type="submit">提交订单</button>
 	{{msg}}
       </form>
 	</br>
     </div> <!-- /container -->
 {% endblock%}
+

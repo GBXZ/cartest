@@ -130,3 +130,15 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,"/cartest/satic/"),]
 STATIC_ROOT = os.path.join(BASE_DIR,"static")
 
+#发送邮件设置
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.163.com"
+EMAILPORT = 25
+EMAIL_HOST_USER = "hupan0818@163.com"
+EMAIL_HOST_PASSWORD = "slh368601"
+EMAIL_FROM = EMAIL_HOST_USER
+EMAIL_USE_TLS = True
+
+
+#更改验证码类型为数学运算，默认为字母
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
