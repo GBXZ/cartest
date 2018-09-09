@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 's)8=)e&ff#th#n(^q%vpmli@r56ggd6yk2enuzcl8jmu02xacd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -127,7 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR,"/cartest/satic/"),]
+STATICFILES_DIRS = (os.path.join(BASE_DIR,'/cartest/static/'),)
 STATIC_ROOT = os.path.join(BASE_DIR,"static")
 
 #发送邮件设置

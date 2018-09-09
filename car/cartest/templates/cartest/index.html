@@ -1,83 +1,64 @@
-{% extends "cartest/base.html"%}
 {% load static %}
-
-<title>{% block title %}珠海为民汽车检测有限公司{% endblock %}</title>
-{% block lianjie %}   <!-- 导航栏菜单 --> 
-			<nav>
-				<div class="nav">
-					<div class="wp">
-						<ul>
-							<li ><a href="index.html">检测流程</a></li>
-							<li class = "active">
-								<a href="course-list.html">
-									车辆登记<img class="hot" src="{% static 'images/nav_hot.png' %}">
-								</a>
-							</li>
-							<li >
-								<a href="teachers-list.html">关于我们</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-{% endblock %}
-
-{% block content %}
-    <div class="container">
-      <form class="form-signin" method="post">
-	{% csrf_token %}
-		<div class="input-group">
-			<label for="inputEmail" class="sr-only">用户名</label>
-			<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-			<input type="text" id="inputEmail" name = "Username" class="form-control" placeholder="用户名" required autofocus>
-		</div>
-		</br>
-		<div class="input-group">
-        <label for="inputPassword" class="sr-only">手机号码</label>
-		<span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
-        <input type="text" id="inputPassword"  name="phone_number" maxlength=11 class="form-control" placeholder="手机号码" required>
-		</div>
-		</br>
-		<div class="input-group">
-		<label for="inputPassword" class="sr-only">车牌号</label>
-		<span class="input-group-addon"><span class="glyphicon glyphicon-star"></span></span>
-        <input type="text"  maxlength=7 id="inputPassword"  name = "car_number" class="form-control" placeholder="车牌号" required>
-		</div>
-		</br>
-		<div class="input-group">
-		<label for="inputPassword" class="sr-only">地址</label>
-		<span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
-        <input type="text" id="inputPassword"  name = "address" class="form-control" placeholder="取车地址" required>
-		</div>
-	
-        <div class="checkbox">
-	
-          <label>
-            <input type="checkbox" value="remember-me"> 还车地址是否一致
-          </label>
-        </div>
-	<!--
-	<div class="field">
-          <div class="ui left img input">
-              <button  id='js-captcha-refresh'  class='ui icon button ' >ss<i class="refresh icon green"></i></button>
-              <img src="{{ image_url}}" alt="captcha" class="captcha">
-              <input autocomplete="off" id="id_captcha_1" name="captcha_1" type="text" placeholder="输入验证码">
-              <input id="id_reg_captcha_0" name="captcha_0" type="hidden" value="{{ hashkey }}">
-         </div>
-       </div>
-	-->
-	<!--
-	   <div class="form-group marb8 captcha1 ">
-        				{{ index_form.captcha }}
-				</br>
-					{{index_form.error.captcha}}
-				<button class='js-captcha-refresh'>刷新验证码</button>
-                        </div>
-    	-->
-	 <button class="btn btn-lg btn-primary btn-block" type="submit">提交订单</button>
-	{{msg}}
-      </form>
-	</br>
-    </div> <!-- /container -->
-{% endblock%}
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>珠海为民汽车检测</title>
+<!-- Meta tag Keywords -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="keywords" content="effective register form Widget a Flat Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Meta tag Keywords -->
+<link rel="stylesheet" href="{% static '/css/style.css' %}" />
+<link rel="stylesheet" href="{% static '/css/font-awesome.min.css' %}"/>
+<link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Expletus+Sans" rel="stylesheet">
+</head>
+<body>
+<section class="agile-main">
+	<header><h1> <label>专业、高效</label> 为民汽车年检</h1></header>
+	<div class="agile-top">
+		<h2>车辆信息登记</h2>
+		<form  method="post">
+			{% csrf_token %}
+			<div class="agile-user">
+				<p>车主姓名</p>
+				<span><i class="fa fa-user" aria-hidden="true"></i></span>
+				<input type="text" name="Username" placeholder="请输入您的姓名" required="">
+				<div class="clear"></div>
+			</div>
+			<div class="agile-email">
+				<p>联系电话</p>
+				<span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+				<input type="text" name="phone_number" placeholder="请输入您的联系号码" required="">
+				<div class="clear"></div>
+			</div>
+			<div class="agile-username">
+				<p>车牌号码</p>
+				<span><i class="fa fa-users" aria-hidden="true"></i></span>
+				<input type="text" name="car_number" placeholder="请输入您的爱车号码" required="">
+				<div class="clear"></div>
+			</div>
+			<div class="agile-password">
+				<p>取车地址</p>
+				<span><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
+				<input type="text" name="address" placeholder="请输入上门取车的地址" required="">
+				<div class="clear"></div>
+			</div>
+			<div class="agile-cpassword">
+				<p>还车地址</p>
+				<span><i class="fa fa-lock" aria-hidden="true"></i></span>
+				<input type="text" name="fan_address" placeholder="检测完毕返还您爱车的地址" required="">
+				<div class="clear"></div>
+			</div>
+			<button type="submit"></button>
+			{{msg}}
+		</form>
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+	<footer>&copy; 2018 珠海为民汽车检测有限公司 &nbsp联系电话:33333 | Design by <a href="http://w3layouts.com">GBXZ</a></footer>
+</section>
+</body>
+</html>

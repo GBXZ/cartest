@@ -8,6 +8,7 @@ class Carinfo(models.Model):
 	phone = models.CharField(max_length=100,verbose_name=u"手机号码")
 	car_number = models.CharField(max_length=100,verbose_name=u"车牌号码",unique=True)
 	address = models.CharField(max_length=200,verbose_name=u"地址")
+	fan_address = models.CharField(max_length=200,verbose_name = u"还车地址",default = "")
 	car_state = models.CharField(max_length=10,choices=(('dj','待检测'),('jc','检测中'),('yj','已检测')),default="dj",verbose_name="汽车状态")
 	create_time = models.DateTimeField(auto_now_add=True,verbose_name="创建时间")
 	change_time = models.DateTimeField(auto_now=True,verbose_name="最后修改时间")
