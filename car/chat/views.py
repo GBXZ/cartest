@@ -5,6 +5,7 @@ from wechatpy.exceptions import InvalidSignatureException
 from wechatpy.utils import check_signature
 from wechatpy import WeChatClient
 from cartest.models import Carinfo
+from wechatpy import events
 
 client = WeChatClient('wx65ecd82cb1ce0559','9c5acf854e9fe944657c775ced596e81')
 WECHAT_TOKEN = 'slh201008'
@@ -63,12 +64,9 @@ def weixin(request):
 					reply = create_reply(car_state,msg)
 			else:
 				reply = create_reply('您输入的车辆不存在',msg)
-		elif msg.type == 'image':
-			reply = create_reply('B',msg)
-		elif msg.type == 'voice':
-			reply = create_reply('C',msg)
-		else:
-			reply = create_reply('D',msg)
+		#点击菜单自动回复
+		if msg.type == 'event' and msg.event == 'click' and msg.key == 'car_find':
+				reply = create_reply('xxxx',msg)
 		response = HttpResponse(reply.render(),content_type='application/xml')
 		return response
 	else:
